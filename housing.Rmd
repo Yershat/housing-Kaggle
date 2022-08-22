@@ -1,0 +1,37 @@
+---
+title: "housing"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r setup, include=FALSE}
+library(dplyr)
+```
+
+
+```{r}
+df <- read.csv("C:/Users/KYershat/Desktop/projects/housing/train.csv", header=FALSE)
+names(df) <- df[1,]
+df <- df[-1,]
+df <- subset(df, select = -c(PoolQC,Alley,Fence,MiscFeature,FireplaceQu))
+```
+
+```{r}
+g= lm(df$LotArea~df$SalePrice,data = df)
+plot(g$residuals,, pch = 16, col = "red")
+```
+
+
+
+
+
+
+
+
+```{r}
+print("The end")
+```
